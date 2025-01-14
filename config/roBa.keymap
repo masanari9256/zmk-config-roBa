@@ -66,11 +66,11 @@
                 <&kp V>,
                 <&macro_release>,
                 <&kp LEFT_WIN>,
-                <&macro_wait_time 100>,
+                <&macro_wait_time 200>,
                 <&kp SPACE>,
-                <&macro_wait_time 100>,
+                <&macro_wait_time 200>,
                 <&kp BACKSPACE>,
-                <&macro_wait_time 100>,
+                <&macro_wait_time 200>,
                 <&kp ENTER>;
 
             label = "M_COPY_TO_SEARCH";
