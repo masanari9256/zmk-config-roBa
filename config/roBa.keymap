@@ -17,11 +17,35 @@
     combos { compatible = "zmk,combos"; };
 
     macros {
-        to_layer_0: to_layer_0 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "TO_LAYER_0";
+        m_copy: copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_WIN &kp C>;
+            label = "COPY";
+        };
+
+        m_paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_WIN &kp V>;
+            label = "PASTE";
+        };
+
+        m_copy_to_search: m_copy_to_search {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LEFT_WIN &kp C>,
+                <&macro_wait_time 100>,
+                <&kp LEFT_WIN &kp T>,
+                <&macro_wait_time 100>,
+                <&kp LEFT_WIN &kp V>,
+                <&macro_wait_time 100>,
+                <&kp SPACE>,
+                <&macro_wait_time 100>,
+                <&kp ENTER>;
+
+            label = "M_COPY_TO_SEARCH";
         };
     };
 
@@ -88,10 +112,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans         &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &mkp MB1  &kp PG_UP      &mkp MB2  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4  &mkp MB3  &kp PAGE_DOWN  &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                       &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans         &trans             &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &mkp MB1  &kp PG_UP      &mkp MB2           &m_copy
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4  &mkp MB3  &kp PAGE_DOWN  &m_copy_to_search  &m_paste
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                &trans
             >;
         };
 
