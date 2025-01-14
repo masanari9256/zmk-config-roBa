@@ -69,7 +69,7 @@
                 <&macro_wait_time 1000>,
                 <&kp SPACE>,
                 <&macro_wait_time 1000>,
-                <&kp BACKSPACE>,
+                <&kp SPACE>,
                 <&macro_wait_time 1000>,
                 <&kp ENTER>;
 
