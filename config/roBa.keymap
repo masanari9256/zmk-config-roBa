@@ -66,8 +66,12 @@
                 <&kp V>,
                 <&macro_release>,
                 <&kp LEFT_WIN>,
-                <&macro_tap>,
-                <&kp SPACE &kp BACKSPACE &kp ENTER>;
+                <&macro_wait_time 50>,
+                <&kp SPACE>,
+                <&macro_wait_time 50>,
+                <&kp BACKSPACE>,
+                <&macro_wait_time 50>,
+                <&kp ENTER>;
 
             label = "M_COPY_TO_SEARCH";
         };
