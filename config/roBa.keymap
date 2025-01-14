@@ -17,7 +17,14 @@
     combos { compatible = "zmk,combos"; };
 
     macros {
-        m_copy: copy {
+        to_layer_0: to_layer_0 {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "TO_LAYER_0";
+        };
+
+        m_copy: new_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -28,38 +35,41 @@
                 <&macro_release>,
                 <&kp LEFT_WIN>;
 
-            label = "COPY";
+            label = "NEW_MACRO";
         };
 
-        m_paste: paste {
+        m_paste: m_paste {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_WIN &kp V>;
-            label = "PASTE";
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_WIN>,
+                <&macro_tap>,
+                <&kp V>,
+                <&macro_release>,
+                <&kp LEFT_WIN>;
+
+            label = "M_PASTE";
         };
 
         m_copy_to_search: m_copy_to_search {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&kp LEFT_WIN &kp C>,
-                <&macro_wait_time 100>,
-                <&kp LEFT_WIN &kp T>,
-                <&macro_wait_time 100>,
-                <&kp LEFT_WIN &kp V>,
-                <&macro_wait_time 100>,
-                <&kp SPACE>,
-                <&macro_wait_time 100>,
-                <&kp ENTER>;
+                <&macro_press>,
+                <&kp LEFT_WIN>,
+                <&macro_tap>,
+                <&kp C>,
+                <&macro_tap>,
+                <&kp T>,
+                <&macro_tap>,
+                <&kp V>,
+                <&macro_release>,
+                <&kp LEFT_WIN>,
+                <&macro_tap>,
+                <&kp SPACE &kp BACKSPACE &kp ENTER>;
 
             label = "M_COPY_TO_SEARCH";
-        };
-
-        to_layer_0: to_layer_0 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "TO_LAYER_0";
         };
     };
 
