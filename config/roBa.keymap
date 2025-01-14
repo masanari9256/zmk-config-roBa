@@ -67,6 +67,7 @@
                 <&macro_release>,
                 <&kp LEFT_WIN>,
                 <&macro_wait_time 1000>,
+                <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_wait_time 1000>,
                 <&kp SPACE>,
