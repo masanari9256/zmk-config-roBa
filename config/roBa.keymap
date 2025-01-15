@@ -75,6 +75,62 @@
 
             label = "M_COPY_TO_SEARCH";
         };
+
+        m_screen_switch_left: m_screen_switch_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "M_SCREEN_SWITCH_LEFT";
+        };
+
+        m_screen_switch_right: m_screen_switch_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "M_SCREEN_SWITCH_RIGHT";
+        };
+
+        m_screen_switch: m_screen_switch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp LCTRL>;
+
+            label = "M_SCREEN_SWITCH";
+        };
+
+        m_screen_shot: m_screen_shot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_WIN &kp LEFT_SHIFT &kp LCTRL &kp NUMBER_4>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp LCTRL &kp>;
+
+            label = "M_SCREEN_SHOT";
+        };
     };
 
     behaviors {
@@ -140,10 +196,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &trans         &trans             &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &mkp MB1  &kp PG_UP      &mkp MB2           &m_copy
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4  &mkp MB3  &kp PAGE_DOWN  &m_copy_to_search  &m_paste
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &m_screen_switch_left  &m_screen_switch  &m_screen_switch_right  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &mkp MB1               &kp PG_UP         &mkp MB2                &m_copy
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4  &mkp MB3               &kp PAGE_DOWN     &m_copy_to_search       &m_paste
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                                     &trans
             >;
         };
 
