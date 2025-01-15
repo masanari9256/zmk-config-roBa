@@ -171,11 +171,12 @@
             tapping-term-ms = <200>;
         };
 
-        scroll_up_down: scroll_up_down {
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             label = "SCROLL_UP_DOWN";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>;
         };
     };
 
@@ -190,7 +191,40 @@
 &kp LEFT_WIN  &kp LEFT_ALT  &kp TAB  &kp BACKSPACE  &mt LEFT_SHIFT LANGUAGE_2  &lt 5 SPACE      &kp ENTER  &lt 2 LANGUAGE_1                           &kp ESC
             >;
 
-            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
+            sensor-bindings =
+                <&scroll_up_down>,
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+        layer_1 {
+            bindings = <
+&kp NUMBER_7  &kp N8        &kp N9        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp LESS_THAN    &kp GREATER_THAN  &kp SQT       &kp EQUAL      &kp MINUS
+&kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans      &trans  &kp EXCLAMATION  &kp UP_ARROW      &kp UP_ARROW  &kp SEMICOLON  &kp GRAVE
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans      &trans  &kp QUESTION     &kp LEFT          &kp DOWN      &kp RIGHT      &kp BACKSLASH
+&trans        &trans        &kp N0        &trans                &trans                 &trans      &trans  &trans                                                          &emoji
+            >;
+            sensor-bindings = <&scroll_up_down>
+
+        };
+
+        layer_2 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                      &m_screen_capture  &m_screen_switch_left  &m_screen_switch  &m_screen_switch_right  &m_screen_shot
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5           &mkp MB1               &kp PG_UP         &mkp MB2                &m_copy
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4           &mkp MB3               &kp PAGE_DOWN     &m_copy_to_search       &m_paste
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                                              &trans
+            >;
+            sensor-bindings = <&scroll_up_down>
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+            >;
+            sensor-bindings = <&scroll_up_down>
         };
 
         layer_4 {
@@ -200,46 +234,17 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-        };
-
-        NUM {
-            bindings = <
-&kp NUMBER_7  &kp N8        &kp N9        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS                      &kp LESS_THAN    &kp GREATER_THAN  &kp SQT       &kp EQUAL      &kp MINUS
-&kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans      &trans  &kp EXCLAMATION  &kp UP_ARROW      &kp UP_ARROW  &kp SEMICOLON  &kp GRAVE
-&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans      &trans  &kp QUESTION     &kp LEFT          &kp DOWN      &kp RIGHT      &kp BACKSLASH
-&trans        &trans        &kp N0        &trans                &trans                 &trans      &trans  &trans                                                          &emoji
-            >;
-
-            sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
-        };
-
-        MOUSE {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &m_screen_capture  &m_screen_switch_left  &m_screen_switch  &m_screen_switch_right  &m_screen_shot
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5           &mkp MB1               &kp PG_UP         &mkp MB2                &m_copy
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4           &mkp MB3               &kp PAGE_DOWN     &m_copy_to_search       &m_paste
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                                              &trans
-            >;
+            sensor-bindings = <&scroll_up_down>
         };
 
         layer_5 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
-            >;
-        };
-
-        FUNCTION {
             bindings = <
 &trans          &trans             &trans           &trans  &trans                      &trans  &trans  &trans  &trans  &trans
 &kp K_MUTE      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &kp LEFT_SHIFT  &trans             &trans           &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans          &trans             &trans           &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp PAGE_DOWN PAGE_UP>;
+            sensor-bindings = <&scroll_up_down>
         };
     };
 };
