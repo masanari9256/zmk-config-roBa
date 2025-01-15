@@ -203,7 +203,7 @@
 &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans      &trans  &kp QUESTION     &kp LEFT          &kp DOWN      &kp RIGHT      &kp BACKSLASH
 &trans        &trans        &kp N0        &trans                &trans                 &trans      &trans  &trans                                                          &emoji
             >;
-            sensor-bindings = <&scroll_up_down>
+            sensor-bindings = <&scroll_up_down>;
 
         };
 
@@ -214,7 +214,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4           &mkp MB3               &kp PAGE_DOWN     &m_copy_to_search       &m_paste
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                                                              &trans
             >;
-            sensor-bindings = <&scroll_up_down>
+            sensor-bindings = <&scroll_up_down>;
         };
 
         layer_3 {
@@ -224,7 +224,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-            sensor-bindings = <&scroll_up_down>
+            sensor-bindings = <&scroll_up_down>;
         };
 
         layer_4 {
@@ -234,7 +234,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-            sensor-bindings = <&scroll_up_down>
+            sensor-bindings = <&scroll_up_down>;
         };
 
         layer_5 {
@@ -244,7 +244,7 @@
 &kp LEFT_SHIFT  &trans             &trans           &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans          &trans             &trans           &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-            sensor-bindings = <&scroll_up_down>
+            sensor-bindings = <&scroll_up_down>;
         };
     };
 };
